@@ -3,7 +3,7 @@ window=Tk()
 # Code to add widgets
 # Syntax for Button: Variable = Button(window, attributes)
 # Place specifies location. Syntax: Variable.place(x= x position, y= y position)
-# Position is in integer value
+# Position is an integer value
 btn1=Button(window, text="Button 1", fg="blue")
 btn1.place(x=150, y=250)
 btn2=Button(window, text="Button 2", fg="green")
