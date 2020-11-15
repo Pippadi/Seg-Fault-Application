@@ -1,7 +1,7 @@
 from tkinter import *
 window=Tk()
-# add widgets here
+# Type code to add widgets here
 
-window.title('Hello Python')
+window.title('Sample Window')
 window.geometry("300x200+10+20")
 window.mainloop()
