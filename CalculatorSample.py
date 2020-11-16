@@ -14,9 +14,9 @@ class Window:
         program.t2=Entry(bd=2)
         program.rtxt=Entry(bd=2)
         program.addbtn=Button(win, text="+", command=program.add)
-        program.subbtn=Button(win, text="-")
-        program.multibtn=Button(win, text="*")
-        program.dividebtn=Button(win, text="/")
+        program.subbtn=Button(win, text="-", command=program.subtract)
+        program.multibtn=Button(win, text="*", command=program.multiply)
+        program.dividebtn=Button(win, text="/", command=program.divide)
         # Specify locations
         program.lbl1.place(x=80, y=130)
         program.lbl2.place(x=80, y=170)
@@ -30,6 +30,9 @@ class Window:
         program.dividebtn.place(x=230, y=230)
         # Function Bindings
         program.addbtn.bind('<Button-1>', program.add)
+        program.subbtn.bind('<Button-1>', program.subtract)
+        program.multibtn.bind('<Button-1>', program.multiply)
+        program.dividebtn.bind('<Button-1>', program.divide)
     def add(program):
         num1=int(program.t1.get())
         num2=int(program.t2.get())
@@ -37,11 +40,23 @@ class Window:
         program.rtxt.delete(0, 'end')
         program.rtxt.insert(END, str(result))
     def subtract(program):
-        result=1
+        num1=int(program.t1.get())
+        num2=int(program.t2.get())
+        result=num1-num2
+        program.rtxt.delete(0, 'end')
+        program.rtxt.insert(END, str(result))
     def multiply(program):
-        result=5
+        num1=int(program.t1.get())
+        num2=int(program.t2.get())
+        result=num1*num2
+        program.rtxt.delete(0, 'end')
+        program.rtxt.insert(END, str(result))
     def divide(program):
-        result=4
+        num1=int(program.t1.get())
+        num2=int(program.t2.get())
+        result=num1 / num2
+        program.rtxt.delete(0, 'end')
+        program.rtxt.insert(END, str(result))
 
 window=Tk()
 mywin=Window(window)
