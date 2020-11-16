@@ -6,9 +6,10 @@ class Window:
     #  initializing function
     def __init__(program, win):
         program.title=Label(win, text="Sample Calculator", fg="blue", font=("Arial", 15))
-        program.title.place(x=110, y=70)
+        program.title.place(x=105, y=70)
         program.lbl1=Label(win, text="First Number")
         program.lbl2=Label(win, text="Second Number")
+        program.rlbl=Label(win, text="Result")
         program.t1=Entry(bd=2)
         program.t2=Entry(bd=2)
         program.rtxt=Entry(bd=2)
@@ -22,10 +23,11 @@ class Window:
         program.t1.place(x=250, y=130)
         program.t2.place(x=250, y=170)
         program.rtxt.place(x=125, y=290)
-        program.addbtn.place(x=50, y=400)
-        program.subbtn.place(x=100, y=400)
-        program.multibtn.place(x=150, y=400)
-        program.dividebtn.place(x=200, y=400)
+        program.rlbl.place(x=164, y=260)
+        program.addbtn.place(x=110, y=230)
+        program.subbtn.place(x=150, y=230)
+        program.multibtn.place(x=190, y=230)
+        program.dividebtn.place(x=230, y=230)
     def add(program):
         result=0
     def subtract(program):
