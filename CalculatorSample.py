@@ -17,19 +17,22 @@ class Window:
         program.multibtn=Button(win, text="*")
         program.dividebtn=Button(win, text="/")
         # Specify locations
-        program.lbl1.place(x=, y=)
-        program.lbl2.place(x=, y=)
-        program.t1.place(x=, y=)
-        program.t2.place(x=, y=)
-        program.rtxt.place(x=, y=)
-        
-    def add():
-        result=
-    def subtract():
+        program.lbl1.place(x=80, y=130)
+        program.lbl2.place(x=80, y=170)
+        program.t1.place(x=250, y=130)
+        program.t2.place(x=250, y=170)
+        program.rtxt.place(x=125, y=290)
+        program.addbtn.place(x=50, y=400)
+        program.subbtn.place(x=100, y=400)
+        program.multibtn.place(x=150, y=400)
+        program.dividebtn.place(x=200, y=400)
+    def add(program):
+        result=0
+    def subtract(program):
         result=1
-    def multiply():
+    def multiply(program):
         result=5
-    def divide():
+    def divide(program):
         result=4
 
 window=Tk()
