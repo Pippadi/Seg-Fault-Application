@@ -1,9 +1,10 @@
 # Tha main application's program
+# Currently working code
 
 from tkinter import *
 window=Tk()
 
-def _init_:
+def _init_():
   # Code to add widgets
   btn1=Button(window, text="Button 1", fg="blue")
   btn1.place(x=150, y=250)
@@ -14,6 +15,7 @@ def _init_:
   txtfield=Entry(window, text="Entry widget", bd=2)
   txtfield.place(x=190, y=150)
 
+_init_()
 window.title('Sample Window')
 window.geometry("500x400+10+20")
 window.mainloop()
