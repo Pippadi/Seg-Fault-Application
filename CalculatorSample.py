@@ -13,7 +13,7 @@ class Window:
         program.t1=Entry(bd=2)
         program.t2=Entry(bd=2)
         program.rtxt=Entry(bd=2)
-        program.addbtn=Button(win, text="+")
+        program.addbtn=Button(win, text="+", command=program.add)
         program.subbtn=Button(win, text="-")
         program.multibtn=Button(win, text="*")
         program.dividebtn=Button(win, text="/")
@@ -28,8 +28,14 @@ class Window:
         program.subbtn.place(x=150, y=230)
         program.multibtn.place(x=190, y=230)
         program.dividebtn.place(x=230, y=230)
+        # Function Bindings
+        program.addbtn.bind('<Button-1>', program.add)
     def add(program):
-        result=0
+        num1=int(program.t1.get())
+        num2=int(program.t2.get())
+        result=num1+num2
+        program.rtxt.delete(0, 'end')
+        program.rtxt.insert(END, str(result))
     def subtract(program):
         result=1
     def multiply(program):
