@@ -10,10 +10,13 @@ def _init_():
   btn1.place(x=150, y=250)
   btn2=Button(window, text="Button 2", fg="green")
   btn2.place(x=300, y=250)
-  title=Label(window, text="Label Widget", fg="black", font=("Arial", 16))
+  title=Label(window, text="Title", fg="black", font=("Arial", 16))
   title.place(x=175, y=95)
   txtfield=Entry(window, text="Entry widget", bd=2)
   txtfield.place(x=190, y=150)
+
+def GetTime:
+  # 
 
 _init_()
 window.title('Sample Window')
