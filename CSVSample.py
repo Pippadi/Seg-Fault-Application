@@ -12,6 +12,11 @@ print(data)
 print("Enter the number of initial values to display: ")
 # Parse to integer
 firstn = int(input())
+#if firstn>=0:
+    firstn=int(firstn)
+#else:
+ #   print("Error!")
+
 # Display the values from the top
 print(data.head(firstn))
 
@@ -20,10 +25,18 @@ print("\nDisplaying the names of all ")
 print(data.columns)
 
 # Display a specific column
-print("Enter the name of any column whose values to display: ")
+print("\nEnter the name of any column whose values to display (case): ")
 cname = input()
-# Display the values from the top
+# Display all values
 print(data[cname])
+
+# Display multiple columns
+print("\nEnter the number of the first column (in the previously mentioned order): ")
+cl1=int(input())
+print("\nEnter the number of the last column (in the previously mentioned order): ")
+cl2=int(input())
+# Display values from cl1 to cl2
+print(data[cl1:cl2])
 
 # Exit the program
 print("\n Exiting in 5 s from now...")
