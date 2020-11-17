@@ -5,9 +5,14 @@ from tkinter import *
 from tkinter.ttk import Combobox
 import pandas as pd
 
-num1 = 1
+# Spreadsheets
 pp=pd.read_csv('population.csv')
 dataset=pd.read_csv('dataset.csv')
+
+# Variables
+inftime=0
+finftime=inftime+1
+reptime=0
 
 class Window:
   def __init__(program, win):
@@ -16,7 +21,7 @@ class Window:
     # Code to add widgets
     btn1=Button(win, text="Button 1", command=program.getcoordinates)
     btn1.place(x=150, y=250)
-    btn2=Button(win, text="Button 2")
+    btn2=Button(win, text="Time", command=program.avgtime)
     btn2.place(x=300, y=250)
     title=Label(win, text="Title", fg="black", font=("Arial", 16))
     title.place(x=200, y=35)
@@ -34,8 +39,11 @@ class Window:
     ddy.place(x=150, y=150)
     # Bind to functions
     btn1.bind('<Button-1>', program.getcoordinates)
+    btn2.bind('<Button-1>', program.avgtime)
     
-  def avgtime():
+  def avgtime(program, num1):
+    print(dataset.head[2:3])
+    
     # Get the average time
     
 
@@ -61,7 +69,7 @@ class Window:
     #if (above60==True):
     
     #else:
-
+    
 
 window=Tk()
 programwin=Window(window)

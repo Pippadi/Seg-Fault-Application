@@ -19,6 +19,7 @@ firstn = int(input())
 
 # Display the values from the top
 print(data.head(firstn))
+# Alternative: print(data.head[1:2])
 
 # Display the names of all columns
 print("\nDisplaying the names of all ")
