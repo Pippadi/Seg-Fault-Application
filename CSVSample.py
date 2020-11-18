@@ -25,7 +25,7 @@ print("\nDisplaying the names of all ")
 print(data.columns)
 
 # Display a specific column
-print("\nEnter the name of any column whose values to display (case): ")
+print("\nEnter the name of any column whose values to display (case sensitive): ")
 cname = input()
 if cname=="Population" or cname=="x location" or cname=="y location":
     # Display all values of that column
@@ -50,6 +50,11 @@ print("\nEnter the number of any row: ")
 rown=int(input())-1
 # Display each row
 print(data.iloc[rown])
+
+# Display data from a specific cell
+# Syntax: print(data.iloc[rown-1,colmn-1])
+print("\nDisplaying data in row 2, column 2: ")
+print(data.iloc[1,1])
 
 # Exit the program
 print("\n Exiting in 5 s from now...")

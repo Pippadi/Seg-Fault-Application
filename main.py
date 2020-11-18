@@ -19,7 +19,7 @@ class Window:
     # List of coordinates
     coordinates=("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20")
     # Code to add widgets
-    btn1=Button(win, text="Button 1", command=program.getcoordinates)
+    btn1=Button(win, text="Find", command=program.getcoordinates)
     btn1.place(x=150, y=250)
     btn2=Button(win, text="Time", command=program.avgtime)
     btn2.place(x=300, y=250)
