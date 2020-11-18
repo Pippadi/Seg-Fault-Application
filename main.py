@@ -18,6 +18,7 @@ class Window:
   def __init__(program, win):
     # List of coordinates
     program.coordinates=("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20")
+    
     # Code to add widgets
     program.btnfind=Button(win, text="Find", command=program.getcoordinates)
     program.btnfind.place(x=150, y=250)
@@ -54,6 +55,7 @@ class Window:
     program.btnfind.bind('<Button-1>', program.getcoordinates)
     program.btntime.bind('<Button-1>', program.avgtime)
 
+  # Find the average time taken by a patient to report infections
   def avgtime(program):
     # print(dataset.head[2:3])
     # Get the average time
@@ -85,6 +87,7 @@ class Window:
     program.lblavg=Label(text=str(int(avgtime))+" days")
     program.lblavg.place(x=490, y=95)
 
+  # Get the population
   def getpp(program):
     rown=0
     ppn=0
