@@ -6,8 +6,8 @@ from tkinter.ttk import Combobox
 import pandas as pd
 
 # Spreadsheets
-pp=pd.read_csv('population.csv')
-dataset=pd.read_csv('dataset.csv')
+pp=pd.read_csv('Population.csv')
+dataset=pd.read_csv('Dataset.csv')
 
 # Variables
 inftime=0
