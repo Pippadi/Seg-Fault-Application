@@ -40,17 +40,18 @@ class Window:
     # Bind to functions
     btn1.bind('<Button-1>', program.getcoordinates)
     btn2.bind('<Button-1>', program.avgtime)
-    
-  def avgtime(program, num1):
+
+  def avgtime(num1):
     print(dataset.head[2:3])
-    
     # Get the average time
     
 
-  def getcoordinates(x, y):
+  def getcoordinates(program):
     # For debug only
     print(pp.head(5))
-  
+    value=
+    print(value)
+    
   #def getcoordinates(xc, yc):
     # 
     
