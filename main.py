@@ -1,4 +1,4 @@
-# Tha main application's program
+# The main application's program
 # Currently working code
 
 from tkinter import *
@@ -15,7 +15,7 @@ finftime=inftime+1
 reptime=0
 
 class Window:
-  def __init__(program, win):
+  def __init__(self, program, win):
     # List of coordinates
     program.coordinates=("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20")
     
@@ -63,7 +63,7 @@ class Window:
     program.rescases()
     
   # Find the average time taken by a patient to report infections
-  def avgtime(program):
+  def avgtime(self, program):
     # print(dataset.head[2:3])
     # Get the average time
     
@@ -95,7 +95,7 @@ class Window:
     program.lblavg.place(x=490, y=95)
 
   # Get the population
-  def getpp(program):
+  def getpp(self, program):
     rown=0
     ppn=0
     
@@ -108,7 +108,7 @@ class Window:
     program.lblppn.place(x=490, y=140)
   
   # Find the number of cases with respiratory illnesses
-  def rescases(program):
+  def rescases(self, program):
     riln=0
     rown=0
 
@@ -125,7 +125,7 @@ class Window:
     program.lblrescases=Label(text=str(riln)+" cases")
     program.lblrescases.place(x=490, y=185)
     
-  def specifictime(program):
+  def specifictime(self, program):
     xcoordinate=int(program.ddx.get())
     ycoordinate=int(program.ddy.get())
     rown=dataset.iloc[xcoordinate, ycoordinate]
@@ -144,7 +144,7 @@ class Window:
     print("\nThe average time is: ")
     print(int(avgtime))
 
-  def getcoordinates(program):
+  def getcoordinates(self, program):
     # For debug only
     # print(pp.head(5))
     value=program.ddx.get()
