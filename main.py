@@ -36,6 +36,8 @@ class Window:
     program.lbltime.place(x=350, y=95)
     program.lbltime=Label(win, text="Total Population: ")
     program.lbltime.place(x=350, y=140)
+    program.lbltime=Label(win, text="Cases with \nRespiratory Issues: ")
+    program.lbltime.place(x=350, y=185)
     # program.lblavg=Label(win, text="Value")
     # program.lblavg.place(x=490, y=95)
     program.lblx=Label(win, text="X-Coordinate")
@@ -46,15 +48,20 @@ class Window:
     program.ddx.place(x=150, y=95)
     program.ddy=Combobox(win, values=program.coordinates)
     program.ddy.place(x=150, y=140)
-
-    # Execute the functions to calculate statistics
-    program.avgtime()
-    program.getpp()
     
     # Bind to functions
     program.btnfind.bind('<Button-1>', program.getcoordinates)
     program.btntime.bind('<Button-1>', program.avgtime)
-
+    
+    # Execute the functions to calculate statistics
+    print("Initializing complete. Performing next steps before starting program...")
+    print("EXECUTE function avgtime()..")
+    program.avgtime()
+    print("\nEXECUTE function getpp()..")
+    program.getpp()
+    print("\nEXECUTE function rescases()..")
+    program.rescases()
+    
   # Find the average time taken by a patient to report infections
   def avgtime(program):
     # print(dataset.head[2:3])
@@ -80,7 +87,7 @@ class Window:
 
     totaltime=ftmr-ftmi
     # print(totaltime)
-    avgtime=totaltime / 462880
+    avgtime=totaltime/462880
     print("\nThe average time is: ")
     print(int(avgtime))
 
@@ -99,7 +106,25 @@ class Window:
     print("The total population is: "+str(ppn)+" people")
     program.lblppn=Label(text=str(ppn)+" people")
     program.lblppn.place(x=490, y=140)
+  
+  # Find the number of cases with respiratory illnesses
+  def rescases(program):
+    riln=0
+    rown=0
 
+    for i in range(462880):
+      outcome=str(dataset.iloc[rown,6])
+
+      if outcome.upper().find("TRUE"):
+        riln=riln+1
+        rown=rown+1
+      else:
+        rown=rown+1
+
+    print("Number of cases with respiratory illnesses is: "+str(riln))
+    program.lblrescases=Label(text=str(riln)+" cases")
+    program.lblrescases.place(x=490, y=185)
+    
   def specifictime(program):
     xcoordinate=int(program.ddx.get())
     ycoordinate=int(program.ddy.get())
