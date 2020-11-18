@@ -41,6 +41,7 @@ else:
 #rl1=int(input())
 #print("\nEnter the number of the last column (in the previously mentioned order): ")
 #rl2=int(input())
+print("\nDisplaying the values of column 'x location': \n")
 # Display values of x location
 print(data['x location'])
 
