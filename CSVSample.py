@@ -9,14 +9,16 @@ data = pd.read_csv('population.csv')
 print(data)
 
 # Print only the first few values
-print("Enter the number of initial values to display: ")
+print("\nEnter the number of initial values to display: ")
 # Parse to integer
 firstn = int(input())
-firstn=int(firstn))
 
-# Display the values from the top
-print(data.head(firstn))
-# Alternative: print(data.head[1:2])
+if isinstance(firstn, int):
+    # Display the values from the top
+    print(data.head(firstn))
+    # Alternative: print(data.head[1:2])
+else:
+    print("Error! Moving Forward >>")
 
 # Display the names of all columns
 print("\nDisplaying the names of all ")
@@ -25,8 +27,13 @@ print(data.columns)
 # Display a specific column
 print("\nEnter the name of any column whose values to display (case): ")
 cname = input()
-# Display all values of that column
-print(data[cname])
+if cname=="Population" or cname=="x location" or cname=="y location":
+    # Display all values of that column
+    print(data[cname])
+else:
+    print("\nError! Moving Forward >>>")
+
+# Condition to verify if variable is string: isinstance(variable, type)
 
 # Not working
 # Display multiple columns
