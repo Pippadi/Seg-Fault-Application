@@ -48,7 +48,7 @@ print(data['x location'])
 # Display a specific row
 print("\nEnter the number of any row: ")
 rown=int(input())-1
-# Display each row
+# Display the contents of that row
 print(data.iloc[rown])
 
 # Display data from a specific cell
