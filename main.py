@@ -19,38 +19,46 @@ class Window:
     # List of coordinates
     program.coordinates=("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20")
     # Code to add widgets
-    program.btn1=Button(win, text="Find", command=program.getcoordinates)
-    program.btn1.place(x=150, y=250)
-    program.btn2=Button(win, text="Time", command=program.avgtime)
-    program.btn2.place(x=300, y=250)
-    program.title=Label(win, text="Title", fg="black", font=("Arial", 16))
-    program.title.place(x=200, y=35)
+    program.btnfind=Button(win, text="Find", command=program.getcoordinates)
+    program.btnfind.place(x=150, y=250)
+    program.btntime=Button(win, text="Calculate Time", command=program.specifictime)
+    program.btntime.place(x=200, y=250)
+    program.title=Label(win, text="Dataset Application", fg="black", font=("Arial", 16))
+    program.title.place(x=250, y=29)
     # program.txtx=Entry(win, text="Enter the X-coordinate", bd=2)
     # program.txtx.place(x=150, y=100)
     # program.txty=Entry(win, text="Enter the Y-coordinate", bd=2)
     # program.txty.place(x=150, y=150)
+    program.lblstats=Label(win, text="Statistics", font=("Arial", 14))
+    program.lblstats.place(x=470, y=53)
+    program.lbltime=Label(win, text="Average Time: ")
+    program.lbltime.place(x=350, y=95)
+    # program.lblavg=Label(win, text="Value")
+    # program.lblavg.place(x=490, y=95)
+    program.avgtime()
     program.lblx=Label(win, text="X-Coordinate")
-    program.lblx.place(x=20, y=100)
+    program.lblx.place(x=20, y=95)
     program.lbly=Label(win, text="Y-Coordinate")
-    program.lbly.place(x=20, y=150)
+    program.lbly.place(x=20, y=140)
     program.ddx=Combobox(win, values=program.coordinates)
-    program.ddx.place(x=150, y=100)
+    program.ddx.place(x=150, y=95)
     program.ddy=Combobox(win, values=program.coordinates)
-    program.ddy.place(x=150, y=150)
+    program.ddy.place(x=150, y=140)
     # Bind to functions
-    program.btn1.bind('<Button-1>', program.getcoordinates)
-    program.btn2.bind('<Button-1>', program.avgtime)
+    program.btnfind.bind('<Button-1>', program.getcoordinates)
+    program.btntime.bind('<Button-1>', program.avgtime)
 
   def avgtime(program):
     # print(dataset.head[2:3])
     # Get the average time
     
-    ycoordinate=int(program.ddy.get())
-    rown=ycoordinate-1
-    colmn=1
+    # For Debug only
+    # ycoordinate=int(program.ddy.get())
+    
+    rown=0
     tmr=int(dataset.iloc[rown,1])
     tmi=int(dataset.iloc[rown,0])+1
-    print("\nThe total time taken is: ")
+    # print("\nThe total time taken is: ")
     # print(tmr-tmi)
 
     ftmr=tmr+int(dataset.iloc[rown,1])
@@ -63,10 +71,32 @@ class Window:
       ftmi=ftmi+int(dataset.iloc[rown,0])
 
     totaltime=ftmr-ftmi
-    print(totaltime)
+    # print(totaltime)
     avgtime=totaltime / 462880
     print("\nThe average time is: ")
-    print(avgtime)
+    print(int(avgtime))
+
+    program.lblavg=Label(text=str(int(avgtime))+" days")
+    program.lblavg.place(x=490, y=95)
+
+  def specifictime(program):
+    xcoordinate=int(program.ddx.get())
+    ycoordinate=int(program.ddy.get())
+    rown=dataset.iloc[xcoordinate, ycoordinate]
+    tmr=int(dataset.iloc[rown,1])
+    tmi=int(dataset.iloc[rown,0])+1
+    # print("\nThe total time taken is: ")
+    # print(tmr-tmi)
+
+    ftmr=tmr+int(dataset.iloc[rown,1])
+    rown=rown+1
+    ftmi=tmi+int(dataset.iloc[rown,0])
+    
+    totaltime=ftmr-ftmi
+    # print(totaltime)
+    avgtime=totaltime / 462880
+    print("\nThe average time is: ")
+    print(int(avgtime))
 
   def getcoordinates(program):
     # For debug only
