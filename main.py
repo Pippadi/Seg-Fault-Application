@@ -45,14 +45,28 @@ class Window:
     # print(dataset.head[2:3])
     # Get the average time
     
-    # For Debug only
     ycoordinate=int(program.ddy.get())
     rown=ycoordinate-1
     colmn=1
     tmr=int(dataset.iloc[rown,1])
     tmi=int(dataset.iloc[rown,0])+1
     print("\nThe total time taken is: ")
-    print(tmr-tmi)
+    # print(tmr-tmi)
+
+    ftmr=tmr+int(dataset.iloc[rown,1])
+    rown=rown+1
+    ftmi=tmi+int(dataset.iloc[rown,0])
+    
+    for i in range(462879):
+      ftmr=ftmr+int(dataset.iloc[rown,1])
+      rown=rown+1
+      ftmi=ftmi+int(dataset.iloc[rown,0])
+
+    totaltime=ftmr-ftmi
+    print(totaltime)
+    avgtime=totaltime / 462880
+    print("\nThe average time is: ")
+    print(avgtime)
 
   def getcoordinates(program):
     # For debug only
@@ -84,5 +98,5 @@ class Window:
 window=Tk()
 programwin=Window(window)
 window.title('Application')
-window.geometry("500x500+10+10")
+window.geometry("700x600+10+10")
 window.mainloop()
