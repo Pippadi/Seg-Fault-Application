@@ -33,9 +33,10 @@ class Window:
     program.lblstats.place(x=470, y=53)
     program.lbltime=Label(win, text="Average Time: ")
     program.lbltime.place(x=350, y=95)
+    program.lbltime=Label(win, text="Total Population: ")
+    program.lbltime.place(x=350, y=140)
     # program.lblavg=Label(win, text="Value")
     # program.lblavg.place(x=490, y=95)
-    program.avgtime()
     program.lblx=Label(win, text="X-Coordinate")
     program.lblx.place(x=20, y=95)
     program.lbly=Label(win, text="Y-Coordinate")
@@ -44,6 +45,11 @@ class Window:
     program.ddx.place(x=150, y=95)
     program.ddy=Combobox(win, values=program.coordinates)
     program.ddy.place(x=150, y=140)
+
+    # Execute the functions to calculate statistics
+    program.avgtime()
+    program.getpp()
+    
     # Bind to functions
     program.btnfind.bind('<Button-1>', program.getcoordinates)
     program.btntime.bind('<Button-1>', program.avgtime)
@@ -79,6 +85,18 @@ class Window:
     program.lblavg=Label(text=str(int(avgtime))+" days")
     program.lblavg.place(x=490, y=95)
 
+  def getpp(program):
+    rown=0
+    ppn=0
+    
+    for i in range(400):
+      ppn=ppn+int(pp.iloc[rown,2])
+      rown=rown+1
+
+    print("The total population is: "+str(ppn)+" people")
+    program.lblppn=Label(text=str(ppn)+" people")
+    program.lblppn.place(x=490, y=140)
+
   def specifictime(program):
     xcoordinate=int(program.ddx.get())
     ycoordinate=int(program.ddy.get())
@@ -105,8 +123,6 @@ class Window:
     print("\n")
     print(value)
     
-  #def getcoordinates(xc, yc):
-    # 
     
   #def filterd():
     # 
